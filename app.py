@@ -19,7 +19,7 @@ import logging
 app = Flask(__name__)
 
 CORS(app,
-     resources={r"/api/*": {"origins": ["https://syasmssysytem.vercel.app/"]}},
+     resources={r"/api/*": {"origins": ["https://syasmssysytem.vercel.app"]}},
      supports_credentials=True,
      allow_headers=["Content-Type", "Authorization"],
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
