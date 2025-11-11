@@ -19,7 +19,7 @@ import logging
 app = Flask(__name__)
 
 CORS(app,
-     resources={r"/api/*": {"origins": ["https://syasmssysytem.vercel.app"]}},
+     resources={r"/api/*": {"origins": ["https://syasmssysytem.vercel.app","http://localhost:5173"]}},
      supports_credentials=True,
      allow_headers=["Content-Type", "Authorization"],
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
@@ -62,10 +62,6 @@ def verify_token():
 
 # --- Entry Point ---
 if __name__ == "__main__":
-    app.run(
-        debug=True,
-        host="0.0.0.0",
-        port=5001,
-
-    )
+    PORT = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=PORT)
 
